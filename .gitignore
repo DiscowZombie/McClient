@@ -1,0 +1,8 @@
+# Folders
+bin
+cmake-build-debug
+dev
+.idea
+
+# Files
+*.pcapng
