@@ -8,8 +8,8 @@
 
 int main ()
 {
-    // Ouverture d'une connexion TCP sur IPv4 avec le serveur MC sur 127.0.0.1:25565
-    int sock = tcp_connect_v4 ("127.0.0.1", 25565);
+    // Ouverture d'une connexion TCP IPv6 avec le serveur MC sur ::1, port 25665
+    int sock = tcp_connect (0, "::1", 25565);
 
     // Création d'un paquet C->S Handshake
     packet_data cs_handshake_data = new_data ();

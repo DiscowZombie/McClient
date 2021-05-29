@@ -1,7 +1,7 @@
 #ifndef MCCLIENT_NETWORK_H
 #define MCCLIENT_NETWORK_H
 
-int tcp_connect_v4 (char * ip, short port);
+int tcp_connect (unsigned char ipv4, char * ip, short port);
 
 void display_hex_server_response(int socket);
 
