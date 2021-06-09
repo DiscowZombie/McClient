@@ -6,3 +6,6 @@ dev
 
 # Files
 *.pcapng
+
+# Minecraft server for testing purposes
+mc_server

@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <memory.h>
+#include <packet.h>
 #include "network.h"
 
 #define DEFAULT_REC_BUF_SIZE 1024
@@ -46,8 +47,19 @@ int tcp_connect (unsigned char ipv4, char * ip, short port)
     return sock;
 }
 
+void send_packet (int socket, packet p)
+{
+    if (send (socket, p->data, p->size, 0) < 0) {
+        perror ("Cannot send packet!");
+        exit (EXIT_FAILURE);
+    }
+
+    free_packet (p);
+}
+
 void display_hex_server_response (int socket)
 {
+    // TODO: Debug purpose : Delete or move to utils
     char buf[DEFAULT_REC_BUF_SIZE];
     ssize_t read_size;
 
